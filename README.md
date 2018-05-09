@@ -14,3 +14,8 @@ sh thread.sh 4 forfile.sh
 ps:
   centos下可直接使用，
   ubantu下请将sh 改为bash 或者重新编译解释器，否则不支持 {1..100} 这种数组扩展应用
+## log_to_sql.sh
+使用awk解析日志记录参数，并转化为sql，然后导入数据库,使用方法请看脚本注释，需保证日志参数与数据库字段一致。实测5M日志，3000条结果导入只需1秒
+```bash
+sh sql_to_log.sh
+```
