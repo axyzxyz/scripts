@@ -1,0 +1,15 @@
+server {
+        listen 443;
+        server_name www.domain.com; #填写绑定证书的域名
+        ssl on;
+        ssl_certificate /etc/nginx/certificate/1_lqhy.xyz_bundle.crt;
+        ssl_certificate_key /etc/nginx/certificate/2_lqhy.xyz.key;
+        ssl_session_timeout 5m;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置
+        ssl_prefer_server_ciphers on;
+        location / {
+            root   /html; #站点目录
+            return 200 'hello';
+        }
+    }
