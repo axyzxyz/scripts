@@ -19,3 +19,6 @@ ps:
 ```bash
 sh sql_to_log.sh
 ```
+## vpn.bat
+
+ vpn 自动连接脚本， 使用前请去掉vpn适配器的远程网关，并设置用户名密码vpn名称
