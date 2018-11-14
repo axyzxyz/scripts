@@ -1,12 +1,13 @@
 echo 备份原yum文件，并安装阿里源，epel源
-if [[ -n $1 ]] && [ $1 = 'docker' ]
+if [[ -n "$1" ]] && [ $1 = 'docker' ]
 then check=yes
 fi
-if [[ -n $3 ]] && [ $3 = 'k8s' ]
+
+if [[ -n "$3" ]] && [ $3 = 'k8s' ]
 then check2=yes
 fi
 
-if [ $1 = 'docker']
+
 if [ ! -f /etc/yum.repos.d/Centos-7.repo ] 
 then
     mkdir -p /etc/yum.repos.d/bake && \mv  /etc/yum.repos.d/*repo /etc/yum.repos.d/bake
