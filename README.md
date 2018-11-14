@@ -72,6 +72,7 @@ yum install -y kubeadm-$version kubelet-$version kubectl-$version
 | 17.03.2 |
 | 17.03.1 |
 | 17.03.0 |
+
 > k8s 组件 版本（默认版本1.11.4-0）：
 
 | version |
