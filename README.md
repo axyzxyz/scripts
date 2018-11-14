@@ -36,7 +36,7 @@ curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/init_intall.
 # 限定第一个参数必须是`docker`，(不是则跳过此步骤，不存在则等同于上述方式，输入yes|no选择),执行docker 安装， 第二个参数为对应版本，找不到版本则安装默认版本（已存在docker 将跳过安装）
 # 限定第三个参数必须是`k8s`，(不是则跳过此步骤，不存在则等同于上述方式),执行k8s组件 安装， 第四个参数为对应版本，找不到版本则安装默认版本（已存在删除重装）
 # 1
-bash -c "`curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/init_intall.sh `" -O docker 18.06.1 k8s 1.12.2-0
+bash -c "`curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/init_intall.sh `" -O docker 18.06.1 k8s 1.11.4-0
 # 2 同上
 curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/init_intall.sh > init_intall.sh&&bash init_intall.sh docker 18.06.1 k8s 1.11.4-0
 ```
