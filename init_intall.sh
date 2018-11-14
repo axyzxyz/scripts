@@ -84,7 +84,7 @@ do
             version=$2
             [[ -n $version ]] ||read -p 'version[defalut:17.03.3]:' -t 10 version 
             [[ -n $version ]] ||version=17.03.3
-            if [ `grep $version /tmp/.docker.version|wc -l` -eq 1 ] && [ $version = `grep $version /tmp/.docker.version|tail -1` ]; 
+            if [ `grep $version /tmp/.docker.version|wc -l` -ge 1 ] && [ $version = `grep $version /tmp/.docker.version|tail -1` ]; 
             then green_echo 已选择版本：$version
             else
                 version=17.03.3
@@ -119,7 +119,7 @@ do
         yum --showduplicates list kubeadm|grep kubeadm.x86_64|awk '{print $2, $3}'|sort |head -20|tac|tee /tmp/.k8s.version
         [[ -n $version ]] ||read -p"version[defalut:1.11.4-0](仅一次选择机会，错误则为默认版本):" -t 120 version 
         [[ -n $version ]] ||version=1.11.4-0
-        if [ `grep $version /tmp/.k8s.version|wc -l` -eq 1 ] && [ $version = `grep $version /tmp/.k8s.version|tail -1|awk '{print $1}'` ]
+        if [ `grep $version /tmp/.k8s.version|wc -l` -ge 1 ] && [ $version = `grep $version /tmp/.k8s.version|tail -1|awk '{print $1}'` ]
         then 
             green_echo "k8s components version: $version"
         else 
