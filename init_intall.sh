@@ -30,15 +30,15 @@ while true
 do
     read -p "yes|no[defalut:no]: " check
     [[ -n $check ]] ||check=no
-    if [[ $check = 'yes' ]]
+    if [ $check='yes' ]
     then break
     fi
-    if [[ $check = 'no' ]] 
+    if [ $check='no' ] 
     then break
     fi
 done
 # docker k8s 部分
-if [[ $check = 'no' ]] 
+if [ $check='no' ] 
 then echo '已选择不安装docker 和k8s；脚本结束，直接退出'
 exit 0
 fi
@@ -54,7 +54,7 @@ else
     while true
     do read -p 'version[defalut:17.03.3]:' -t 10 version 
        [[ -n $version ]] ||version=17.03.3
-       if [[ `grep $version /tmp/.docker.version|wc -l` -eq 1 ]] && [[ $version = `grep $version /tmp/.docker.version|tail -1` ]]; 
+       if [ `grep $version /tmp/.docker.version|wc -l` -eq 1 ] && [ $version = `grep $version /tmp/.docker.version|tail -1` ]; 
        then echo 已选择版本17.03.3
        break
        fi
@@ -70,7 +70,7 @@ unset version
 yum --showduplicates list kubeadm|grep kubeadm.x86_64|awk '{print $2, $3}'|sort |head -20|tac|tee /tmp/.k8s.version
 read -p"version[defalut:1.11.4-0](仅一次选择机会，错误则为指定版本):" -t 120 version 
 [[ -n $version ]] ||version=1.11.4-0
-if [[ `grep $version /tmp/.k8s.version|wc -l` -eq 1 ]] && [[ $version = `grep $version /tmp/.k8s.version|tail -1|awk '{print $1}'` ]]
+if [ `grep $version /tmp/.k8s.version|wc -l` -eq 1 ] && [ $version=`grep $version /tmp/.k8s.version|tail -1|awk '{print $1}'` ]
 then 
     echo "k8s components version: $version"
 else 
