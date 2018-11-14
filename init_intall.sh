@@ -3,7 +3,7 @@
 green_echo(){
     echo -e "\033[1;32m$@ \033[0m"
 }
-green_echo "#1: keepalived config "
+
 
 if [[ -n "$1" ]] 
 then
