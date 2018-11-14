@@ -38,7 +38,7 @@ curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/init_intall.
 # 1
 bash -c "`curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/init_intall.sh `" -O docker 18.06.1 k8s 1.12.2-0
 # 2 同上
-curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/init_intall.sh > init_intall.sh&&bash init_intall.sh docker 18.06.1 k8s 1.12.2-0
+curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/init_intall.sh > init_intall.sh&&bash init_intall.sh docker 18.06.1 k8s 1.11.4-0
 ```
 更多版本请使用 以下命令查看：
 ```bash
