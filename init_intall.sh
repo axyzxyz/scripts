@@ -91,7 +91,7 @@ do
         then 
             echo "k8s components version: $version"
         else 
-            echo "k8s components version is wrong ,use the version:1.12.1-0"
+            echo "k8s components version is wrong ,use the version:$version"
             version=1.11.4-0
         fi
 
