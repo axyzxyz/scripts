@@ -56,7 +56,7 @@ systemctl disable firewalld&&systemctl stop firewalld
 
 green_echo '内核参数优化'
 base_url='https://raw.githubusercontent.com/a001189/scripts/master/centos_init_update'
-if [ `tail -10 /etc/sysctl.conf|grep 'fs.file-max = 6553560'|wc -l` -ge 1 ]
+if [ `tail -20 /etc/sysctl.conf|grep 'fs.file-max = 6553560'|wc -l` -ge 1 ]
 then
     green_echo 内核参数已优化，无需重复执行
 else
