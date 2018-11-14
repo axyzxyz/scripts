@@ -50,6 +50,7 @@ yum install -y kubeadm-$version kubelet-$version kubectl-$version
 ```
 
 > docker version（默认版本17.03.3） :
+
 | version |
 ---|---
 | 18.06.1 |
@@ -69,6 +70,7 @@ yum install -y kubeadm-$version kubelet-$version kubectl-$version
 | 17.03.1 |
 | 17.03.0 |
 > k8s 组件 版本（默认版本1.11.4-0）：
+
 | version |
 ---|---
 | 1.12.2-0 |
@@ -89,5 +91,6 @@ yum install -y kubeadm-$version kubelet-$version kubectl-$version
 | 1.10.2-0 |
 | 1.10.1-0 |
 | 1.10.0-0 |
+
 
 

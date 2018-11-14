@@ -1,8 +1,8 @@
 echo 备份原yum文件，并安装阿里源，epel源
-if [ -n $1 ] && [ $1 = 'docker' ]
+if [[ -n $1 ]] && [ $1 = 'docker' ]
 then check=yes
 fi
-if [ -n $3 ] && [ $1 = 'k8s' ]
+if [[ -n $3 ]] && [ $1 = 'k8s' ]
 then check2=yes
 fi
 
