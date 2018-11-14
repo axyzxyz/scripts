@@ -135,7 +135,7 @@ do
         if [ `tail -10 /etc/sysctl.conf|grep 'net.ipv4.ip_forward = 1'|wc -l` -ge 1 ]
         then green_echo k8s对应内核参数已添加，无需重复执行
         else
-             curl  -sSLf $base_url/sysctl-k8s.conf >> /etc/security/limits.conf
+             curl  -sSLf $base_url/sysctl-k8s.conf >> /etc/sysctl.conf
              sysctl -p
         fi
         break
