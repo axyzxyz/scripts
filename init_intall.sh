@@ -1,10 +1,20 @@
 echo 备份原yum文件，并安装阿里源，epel源
-if [[ -n "$1" ]] && [ $1 = 'docker' ]
-then check=yes
+if [[ -n "$1" ]] 
+then
+    if [ $1 = 'docker' ]
+    then check=yes
+    else
+        check=no
+    fi
 fi
 
-if [[ -n "$3" ]] && [ $3 = 'k8s' ]
-then check2=yes
+if [[ -n "$3" ]] 
+then 
+    if [ $3 = 'k8s' ]
+    then check2=yes
+    else
+        check2=no
+    fi
 fi
 
 
@@ -85,7 +95,7 @@ do
         echo "请选择安装的k8s组件的版本，推荐1.11.4-0版本"
         version=$4
         yum --showduplicates list kubeadm|grep kubeadm.x86_64|awk '{print $2, $3}'|sort |head -20|tac|tee /tmp/.k8s.version
-        read -p"version[defalut:1.11.4-0](仅一次选择机会，错误则为指定版本):" -t 120 version 
+        [[ -n $version ]] ||read -p"version[defalut:1.11.4-0](仅一次选择机会，错误则为指定版本):" -t 120 version 
         [[ -n $version ]] ||version=1.11.4-0
         if [ `grep $version /tmp/.k8s.version|wc -l` -eq 1 ] && [ $version = `grep $version /tmp/.k8s.version|tail -1|awk '{print $1}'` ]
         then 
