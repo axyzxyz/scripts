@@ -2,7 +2,7 @@ echo 备份原yum文件，并安装阿里源，epel源
 
 if [ ! -f /etc/yum.repos.d/Centos-7.repo ] 
 then
-    mkdir -p /etc/yum.repos.d/bake && mv -rf /etc/yum.repos.d/*repo /etc/yum.repos.d/bake
+    mkdir -p /etc/yum.repos.d/bake && \mv  /etc/yum.repos.d/*repo /etc/yum.repos.d/bake
     curl  -sSLf http://mirrors.aliyun.com/repo/Centos-7.repo >/etc/yum.repos.d/Centos-7.repo
     sed -i 's/$releasever/7/g'  /etc/yum.repos.d/Centos-7.repo
     yum -y install epel-release
@@ -30,7 +30,7 @@ while true
 do
     read -p "yes|no[defalut:no]: " check
     [[ -n $check ]] ||check=no
-    if [[] $check = 'yes' ]]
+    if [[ $check = 'yes' ]]
     then break
     fi
     if [[ $check = 'no' ]] 
