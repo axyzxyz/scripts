@@ -33,7 +33,7 @@ else
     sysctl -p  /etc/sysctl.conf
     curl  -sSLf $base_url/limits.conf >> /etc/security/limits.conf
 fi
-echo "are you sure install the docker and kubenetes?"
+echo "are you sure install the docker?"
 
 while true
 do
