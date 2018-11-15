@@ -38,13 +38,12 @@ green_echo(){
 green_echo "#1: keepalived config "
 
 index=0
-keepalived_config
+
 curl -sSLf https://raw.githubusercontent.com/a001189/scripts/master/keepalived_config/keepalived.conf.sed > keepalived.conf.sed 
 while ((index<$SERVER_NUM));  
 do 
 let priority=100-$index*10;
     NodeIP=${IPS[${index}]};
-    NodeIP=${NodeIPS[${index}]};
     ID=10;   
     sed  "s@#ID@$ID@;s@#priority@$priority@;s@#NodeIP@$NodeIP@;s@CP0_IP@$CP0_IP@;s@CP1_IP@$CP1_IP@;s@CP2_IP@$CP2_IP@;s@##$NodeIP@#$NodeIP@;s@##@@;s@LOAD_BALANCER_DNS@$LOAD_BALANCER_DNS@;s@#interface@$interface@;s/#.*//" keepalived.conf.sed > $NodeIP.keepalived.conf;
     scp $NodeIP.keepalived.conf $NodeIP:/etc/keepalived/keepalived.conf ; 
