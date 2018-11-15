@@ -59,7 +59,7 @@ let priority=100-$index*10;
     ssh $NodeIP "cp -n /etc/sysconfig/keepalived /etc/sysconfig/keepalived-bake"
     sed -i 's/KEEPALIVED_OPTIONS.*/KEEPALIVED_OPTIONS="-D -d -S 0"/' /etc/sysconfig/keepalived
     scp /etc/sysconfig/keepalived $NodeIP:/etc/sysconfig/keepalived
-    ssh $NodeIP "test  `grep 'local0\.\*' /etc/rsyslog.conf |wc -l ` -gt 0 ||  && echo 'local0.*       /var/log/keepalived.log' >> /etc/rsyslog.conf "
+    ssh $NodeIP "[[ `grep 'local0\.\*' /etc/rsyslog.conf |wc -l ` > 0  ]] || echo 'local0.*       /var/log/keepalived.log' >> /etc/rsyslog.conf "
     echo "添加keepalived日志路径：/var/log/keepalived.log"
     ssh $NodeIP "systemctl restart rsyslog && systemctl restart keepalived"; 
     let index=index+1; 
