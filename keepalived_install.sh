@@ -38,7 +38,6 @@ green_echo(){
 green_echo "#1: keepalived config "
 
 index=0
-
 curl -sSLf https://raw.githubusercontent.com/a001189/scripts/master/keepalived_config/keepalived.conf.sed > keepalived.conf.sed 
 while ((index<$SERVER_NUM));  
 do 
@@ -65,3 +64,4 @@ let priority=100-$index*10;
     ssh $NodeIP "systemctl restart rsyslog && systemctl restart keepalived"; 
     let index=index+1; 
 done
+green_echo "finished "
