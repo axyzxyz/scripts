@@ -93,4 +93,9 @@ yum install -y kubeadm-$version kubelet-$version kubectl-$version
 -  1.10.0-0
 
 
+## keepalived_install.sh
 
+* 一键配置keepalived config
+```bash
+curl -sSLf https://raw.githubusercontent.com/a001189/scripts/master/keepalived_install.sh&& bash keepalived_install.sh IP1 IP2 IP3 VIP `网卡`
+```
