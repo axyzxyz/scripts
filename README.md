@@ -99,3 +99,5 @@ yum install -y kubeadm-$version kubelet-$version kubectl-$version
 ```bash
 curl -sSLf https://raw.githubusercontent.com/a001189/scripts/master/keepalived_install.sh>keepalived_install.sh&& bash keepalived_install.sh IP1 IP2 IP3 VIP `网卡`
 ```
+## mysql-rsync.sh
+单表同步到另一个库的脚本
