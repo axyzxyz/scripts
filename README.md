@@ -101,3 +101,12 @@ curl -sSLf https://raw.githubusercontent.com/a001189/scripts/master/keepalived_i
 ```
 ## mysql-rsync.sh
 单表同步到另一个库的脚本
+
+## clean_docker_logfile.sh
+清理容器中特定过大的文件
+```
+# 检测file是否大于100M；为真返回0状态码，否则为1
+LOG_SIZE file 100
+# 清理 大于100M 的file 并打印文件名
+LogClean file 100
+``
