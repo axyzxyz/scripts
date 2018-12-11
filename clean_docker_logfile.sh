@@ -23,8 +23,8 @@ then echo the file is not specified
     return 1
 fi
 
-#LOG_SIZE $1 $sz && (echo > $1&& echo clenn logfile:$1) ||echo logfile:$1 less than ${sz}M
-LOG_SIZE $1 $sz && (echo > $1&& echo clenn logfile:$1) ||echo logfile:$1 less than ${limit_sz}M
+#LOG_SIZE $1 $sz && (echo > $1&& echo clenn logfile:$1) ||echo "       "logfile:$1 less than ${sz}M
+LOG_SIZE $1 $sz && (echo > $1&& echo clenn logfile:$1) ||echo "       "logfile:$1 less than ${limit_sz}M
 }
 
 
