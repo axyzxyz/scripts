@@ -22,8 +22,35 @@ sh sql_to_log.sh
 ## vpn.bat
 
  vpn 自动连接脚本， 使用前请去掉vpn适配器的远程网关，并设置用户名密码vpn名称
+## keep_two_file.sh
+  保留一批对象中最后的三个的awk脚本（参考），及查找7天前的目录
+## rancher_log.sh 借助rancher api 进行日志查询功能
+```bash
+green_echo 使用方法：
+echo '脚本名 参数1 参数2 (参数1为服务名或具体的容器名) 参数2为整数，即阻塞查询对应容器最后多少行日志。'
+echo 'ex1: 脚本名 wechat 300'
+echo 'ex1: 脚本名 wmy-prod-wechat-1 '
+exit 0
+#示例：
 
-## init_install.sh
+[root@wmy-sit prod]# log student
+即将查询以下服务
+服务	容器列表
+请该服务student中选取一个容器查看日志
+1):wmy-prod-student-1
+2):wmy-prod-student-2
+(默认值1,超时10秒;)请输入对应容器的编号:输入为空或超时，设定为默认值1
+查看日志的容器为：wmy-prod-student-1,最后200行
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+```
+## docker_log.sh
+和上述查看日志方式一样，查看容器内特定文件的读写。
+## upsvc_rancher.sh
+rancher api 自动更新服务的脚本，抛弃可视化操作。
+## kube-short.sh
+kubernetes kubectl 简化命令脚本
+
+## init_install.sh centos系统初始化优化
 * use:
 ```bash
 # 直接执行，然后选择是否安装docker k8s
