@@ -89,7 +89,7 @@ do
             else
                 version=17.03.3
             fi
-            yum install docker-ce-$version.ce
+            yum install -y docker-ce-$version.ce
         fi
     break
     fi
