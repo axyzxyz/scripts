@@ -29,6 +29,10 @@ else
     image_id=`echo -n $image|md5sum|cut -f 1 -d ' '`
 fi
 image_id=$image_id`date +_%Y%m%d_%H%M%S`
+BASEDIR=`pwd`
+tmpdir=tmp`date +_%Y%m%d_%H%M%S`
+green_echo "创建临时目录$tmpdir "
+mkdir $tmpdir && cd $tmpdir
 git_dir=`basename $git_repo|awk -F. '{print $1}'`
 git clone $git_repo
 cd $git_dir
@@ -43,8 +47,8 @@ git add .
 git commit -m "image_id:$image_id"
 git tag -f release-v$image_id
 git push --tags -u origin master
-green_echo 删除项目
-cd .. && rm -rf $git_dir
+green_echo 删除项目及临时目录
+cd $BASEDIR && rm -rf $tmpdir
 green_echo 探测临时构建镜像是否成功
 count=1
 while true
