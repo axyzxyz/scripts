@@ -137,3 +137,13 @@ LOG_SIZE file 100
 # 清理 大于100M 的file 并打印文件名
 LogClean file 100
 ``
+## imagepull.sh
+利用阿里云镜像自动构建功能，拉取海外镜像
+参数1必填为需要拉取的镜像包含标签
+```bash
+# 1 方法1
+bash -c "`curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/imagepull.sh `" -O  ${IMAGE:TAG}
+# 2 方法2
+curl -ssLf https://raw.githubusercontent.com/a001189/scripts/master/imagepull.sh > imagepull.sh&&bash imagepull.sh ${IMAGE:TAG}
+
+```
