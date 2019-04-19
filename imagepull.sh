@@ -8,6 +8,8 @@ green_echo(){
 git_repo="https://yuesjgo:123qazBNM@github.com/yuesjgo/dockerfiles.git" # 与镜像构建相关的代码仓库https
 # git_repo="git@github.com:a001189/dockerfile-bulid.git"   # 与镜像构建相关的代码仓库（阿里云的代码仓库不稳定，勿用）
 docker_repo="registry.cn-shanghai.aliyuncs.com/ysj/googleimages" # 阿里自动构想镜像仓库
+# 修改上述两个变量为自己私有的仓库，即可实现私有化。
+
 
 # 检查软件依赖
 which git &>/dev/null || { green_echo "无法找到git，退出" && exit 1; }
@@ -17,6 +19,7 @@ which docker &>/dev/null || { green_echo "无法找到docker，退出" && exit 1
 
 image=$1
 if [ "$image" = "" ]; then green_echo 请指定要下载的镜像，包含标签;exit 1;fi
+green_echo 开始构建并拉取镜像 $image
 #编码image
 if { base64 --version &>/dev/null && base64 --version|head -n 1;} 
 then 
