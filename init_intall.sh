@@ -77,7 +77,7 @@ do
         then green_echo docker 已存在，升降级安装可能不可预知问题，自动跳过
         else
             green_echo 安装docker-ce yum源，并缓存
-            curl -sSLf https://download.docker.com/linux/centos/docker-ce.repo > /etc/yum.repos.d/docker-ce.repo
+            curl -sSLf https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo > /etc/yum.repos.d/docker-ce.repo
             yum makecache
             green_echo "请选择安装的docker版本"
             yum list docker-ce --showduplicates | sort -r|awk '{print $2}'|grep ce|awk -F'.ce' '{print $1}' |tee /tmp/.docker.version
